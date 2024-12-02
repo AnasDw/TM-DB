@@ -2,8 +2,6 @@ import { Layout } from "antd";
 import dynamic from "next/dynamic";
 import styled from "styled-components";
 
-import { WorkspaceTabRoutesV4 } from "../../../../../tab/enum";
-
 const ComplianceSettings = dynamic(() => import("./compliance-settings"), {
   ssr: false,
 });
@@ -21,7 +19,7 @@ const StyledContent = styled(Content)`
 export const MenuItemTab: React.FC<MenuItemTabProps> = ({ tabId }) => {
   const getComponentForTab = (): React.ReactNode => {
     switch (tabId) {
-      case WorkspaceTabRoutesV4.ComplianceSettings:
+      case "ComplianceSettings":
         return <ComplianceSettings />;
 
       default:

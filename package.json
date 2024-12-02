@@ -11,8 +11,7 @@
     "clean": "rimraf .next out",
     "lint": "next lint --fix",
     "lint-errors": "next lint --fix --quiet",
-    "build-types": "tsc --noEmit --pretty",
-    "prepare": "cd .. && husky install"
+    "build-types": "tsc --noEmit --pretty"
   },
   "dependencies": {
     "@ant-design/colors": "^7.0.0",

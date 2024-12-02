@@ -2,10 +2,26 @@ import React, { useState } from "react";
 
 import { Layout } from "antd";
 import { useRouter } from "next/router";
-import { StyledSider } from "../../../admin/analysis/AnalysisTabsV4";
+import styled from "styled-components";
 import { MenuItemTab } from "./components/desktop/MenuItemTab";
 import { SiderMenu } from "./components/desktop/SiderMenu";
-import { SiderToggleButton } from "./components/desktop/SiderToggleButton";
+import {
+  MinimizedButton,
+  SiderToggleButton,
+} from "./components/desktop/SiderToggleButton";
+
+const { Sider } = Layout;
+
+export const StyledSider = styled(Sider)`
+  .ant-layout-sider-children {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &:hover ${MinimizedButton} {
+    opacity: 1;
+  }
+`;
 
 const WorkspaceSettings = () => {
   const [collapsed, setCollapsed] = useState(false);

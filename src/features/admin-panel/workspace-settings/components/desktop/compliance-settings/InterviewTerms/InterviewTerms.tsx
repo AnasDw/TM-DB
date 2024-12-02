@@ -6,11 +6,9 @@ import {
   RichTextEditor,
   STAR_SEPARATOR,
 } from "../../../../../../../text-editor/RichTextEditor";
-import TermsPopup from "../../../../../../pre-interview/components/shared/TermsPopup";
 import useComplianceSettings, {
   sanitizeTermsConfiguration,
 } from "../../../../custom-hooks/useComplianceSettings";
-import { useComplianceSettingsLabels } from "../../../../custom-hooks/useLabels";
 import { InterviewTermsInterface } from "../../../../interfaces";
 import { StyledCard, StyledFormItem } from "../../../../styles";
 
@@ -83,12 +81,6 @@ export const InterviewTerms: React.FC = () => {
     });
   };
 
-  const {
-    termsConfigurationAlertMessage,
-    termsConfigurationParagraph,
-    termsConfigurationTitle,
-  } = useComplianceSettingsLabels();
-
   return (
     <StyledCard bordered={false}>
       {isLoadingComplianceSettings ? (
@@ -117,10 +109,10 @@ export const InterviewTerms: React.FC = () => {
           onFinish={onFinish}
         >
           <Typography.Title level={5}>
-            {termsConfigurationTitle}
+            {"termsConfigurationTitle"}
           </Typography.Title>
           <Typography.Paragraph type="secondary">
-            {termsConfigurationParagraph}
+            {"termsConfigurationParagraph"}
           </Typography.Paragraph>
           <Flex
             vertical
@@ -135,7 +127,7 @@ export const InterviewTerms: React.FC = () => {
             <Alert
               message={
                 <Typography.Text>
-                  {termsConfigurationAlertMessage}
+                  {"termsConfigurationAlertMessage"}
                 </Typography.Text>
               }
               icon={<BulbOutlined />}
@@ -175,15 +167,6 @@ export const InterviewTerms: React.FC = () => {
             </Button>
           </Space>
         </Form>
-      )}
-      {isPreviewModalOpen && (
-        <TermsPopup
-          open={isPreviewModalOpen}
-          terms={parseHtmlToRows(termsConfiguration)}
-          onAgree={() => {
-            setIsPreviewModalOpen(false);
-          }}
-        />
       )}
     </StyledCard>
   );

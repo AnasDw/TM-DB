@@ -31,7 +31,7 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <title>Genway | AI-Powered User Interviews</title>
+        <title>TM-DB</title>
 
         <body>
           <Main />

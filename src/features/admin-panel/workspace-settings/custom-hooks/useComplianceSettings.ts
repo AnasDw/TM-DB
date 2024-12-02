@@ -5,7 +5,6 @@ import { IconTypeEnum } from "../../../../notification/enum";
 import { openNotificationWithIcon } from "../../../../notification/openNotificationWithIcon";
 import { queryClient } from "../../../../pages/_app";
 import { workspaceServiceInstance } from "../../../../utils/api";
-import { Routes } from "../../../../utils/routes";
 import { ComplianceSettingsDTO } from "../interfaces";
 
 export const sanitizeTermsConfiguration = (dirtyHtml: string): string => {
@@ -23,10 +22,12 @@ const useComplianceSettings = () => {
     data: complianceSettingsData,
     isLoading: isLoadingComplianceSettings,
   } = useQuery<ComplianceSettingsDTO>(
-    Routes.WORKSPACE.COMPLIANCE_SETTINGS,
+    "Routes.WORKSPACE.COMPLIANCE_SETTINGS",
     async () => {
       return (
-        await workspaceServiceInstance.get(Routes.WORKSPACE.COMPLIANCE_SETTINGS)
+        await workspaceServiceInstance.get(
+          "Routes.WORKSPACE.COMPLIANCE_SETTINGS"
+        )
       ).data;
     },
     {
@@ -40,13 +41,14 @@ const useComplianceSettings = () => {
   } = useMutation(
     async (updatedFields: Partial<ComplianceSettingsDTO>) => {
       return workspaceServiceInstance.put(
-        Routes.WORKSPACE.COMPLIANCE_SETTINGS,
+        "Routes.WORKSPACE.COMPLIANCE_SETTINGS",
         updatedFields
       );
     },
+
     {
       onSuccess: () => {
-        queryClient.invalidateQueries(Routes.WORKSPACE.COMPLIANCE_SETTINGS);
+        queryClient.invalidateQueries("Routes.WORKSPACE.COMPLIANCE_SETTINGS");
         openNotificationWithIcon(IconTypeEnum.Success, {
           description: "The changes have been successfully saved",
         });
@@ -68,7 +70,7 @@ const useComplianceSettings = () => {
   const sanitizedCompliancData = useMemo(
     () => ({
       ...complianceSettingsData,
-      termsConfiguration: complianceSettingsData?.termsConfiguration.map(
+      termsConfiguration: complianceSettingsData?.termsConfiguration?.map(
         sanitizeTermsConfiguration
       ),
     }),

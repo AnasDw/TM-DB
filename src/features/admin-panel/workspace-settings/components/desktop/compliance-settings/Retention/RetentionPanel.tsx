@@ -9,7 +9,6 @@ import _ from "lodash";
 import { ScreenRecordingIcon } from "../../../../../../../lib/svg-icons/system/ScreenRecordingIcon";
 import { colors } from "../../../../../../../lib/theme/colors";
 import useComplianceSettings from "../../../../custom-hooks/useComplianceSettings";
-import { useComplianceSettingsLabels } from "../../../../custom-hooks/useLabels";
 import { ComplianceSettingsDTO } from "../../../../interfaces";
 import { RetentionItemRow } from "./RetentionItemRow";
 
@@ -84,14 +83,6 @@ const RetentionPanel: React.FC = () => {
     setHasUnsavedChanges(newChangedFields.size > 0);
   };
 
-  const {
-    audioRetention,
-    videoRetention,
-    identifierRetention,
-    screenRecordingRetention,
-    identifierRetentionTooltip,
-  } = useComplianceSettingsLabels();
-
   return (
     <Card styles={{ body: { padding: "32px 24px" } }} bordered={false}>
       <Form
@@ -117,26 +108,26 @@ const RetentionPanel: React.FC = () => {
             <Space direction="vertical" size={16} style={{ width: "100%" }}>
               <RetentionItemRow
                 icon={<AudioOutlined style={{ color: colors.grey[3] }} />}
-                title={audioRetention}
+                title={"audioRetention"}
                 fieldName="audioRetention"
               />
               <Divider style={{ margin: 0 }} />
               <RetentionItemRow
                 icon={<VideoCameraOutlined style={{ color: colors.grey[3] }} />}
-                title={videoRetention}
+                title={"videoRetention"}
                 fieldName="videoRetention"
               />
               <Divider style={{ margin: 0 }} />
               <RetentionItemRow
                 icon={<ScreenRecordingIcon style={{ fontSize: "1rem" }} />}
-                title={screenRecordingRetention}
+                title={"screenRecordingRetention"}
                 fieldName="screenRecordingRetention"
               />
               <Divider style={{ margin: 0 }} />
               <RetentionItemRow
                 icon={<UserOutlined style={{ color: colors.grey[3] }} />}
-                title={identifierRetention}
-                toolTipText={identifierRetentionTooltip}
+                title={"identifierRetention"}
+                toolTipText={"identifierRetentionTooltip"}
                 fieldName="identifierRetention"
               />
             </Space>

@@ -1,5 +1,7 @@
+import WorkspaceSettings from "../../features/admin-panel/workspace-settings";
+
 const AdminIndex = () => {
-  return <></>;
+  return <WorkspaceSettings />;
 };
 
 export default AdminIndex;

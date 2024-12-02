@@ -8,8 +8,6 @@ import { ThemeProvider } from "../lib/providers/ThemeProvider";
 
 import "../styles/global.css";
 
-
-
 export const queryClient = new QueryClient();
 
 const MyApp = ({ Component, pageProps }: AppProps<any>) => {
@@ -18,11 +16,11 @@ const MyApp = ({ Component, pageProps }: AppProps<any>) => {
   return (
     <ThemeProvider>
       <App component={false}>
-          <QueryClientProvider client={queryClient}>
-            <QueryParamProvider adapter={NextAdapter}>
-                <AnyComponent {...pageProps} />
-            </QueryParamProvider>
-          </QueryClientProvider>
+        <QueryClientProvider client={queryClient}>
+          <QueryParamProvider adapter={NextAdapter}>
+            <AnyComponent {...pageProps} />
+          </QueryParamProvider>
+        </QueryClientProvider>
       </App>
     </ThemeProvider>
   );

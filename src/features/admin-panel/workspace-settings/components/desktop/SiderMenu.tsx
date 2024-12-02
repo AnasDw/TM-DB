@@ -1,20 +1,43 @@
-import React from "react";
 import { ArrowLeftOutlined, SettingOutlined } from "@ant-design/icons";
-import { Avatar, Menu, Typography } from "antd";
+import { Menu, MenuProps, Typography } from "antd";
 import { useRouter } from "next/router";
-import {
-  backButton,
-  getItem,
-  MenuItem,
-  menuWidth,
-  menuWidthCollapsed,
-} from "../../../../../admin/analysis/AnalysisTabsV4";
-import { useTenant } from "../../../../../contexts/TenantContext";
 import { colors } from "../../../../../lib/theme/colors";
-import { StyledText } from "../../../../../lib/theme/GlobalStyle";
 import { WorkspaceTabRoutesV4 } from "../../../../../tab/enum";
-import { Pages } from "../../../../../utils/routes/consts";
-import { HelpCenterMenu } from "./HelpCenterMenu";
+import { Pages } from "../../../../../utils/routers/consts";
+
+export const backButton = "Back";
+export const menuWidth = 236;
+export const menuWidthCollapsed = 80;
+
+export type MenuItem = Required<MenuProps>["items"][number];
+
+export function getItem({
+  label,
+  key,
+  icon,
+  children,
+  type,
+  style,
+  disabled,
+}: {
+  label: React.ReactNode;
+  key: React.Key;
+  icon?: React.ReactNode;
+  children?: MenuItem[];
+  type?: "group";
+  style?: React.CSSProperties;
+  disabled?: boolean;
+}): MenuItem {
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+    style,
+    disabled,
+  } as MenuItem;
+}
 
 const COMPANY_PROFILE_KEY = "company-profile";
 
@@ -23,32 +46,8 @@ export const SiderMenu: React.FC<{ collapsed: boolean; tabId: string }> = ({
   tabId,
 }) => {
   const router = useRouter();
-  const { currentTenantName } = useTenant();
 
   const SiderMenuItems: MenuItem[] = [
-    getItem({
-      label: (
-        <StyledText
-          font_weight="400"
-          font_color={colors.grey[3]}
-          font_size=".875rem"
-        >
-          {currentTenantName}
-        </StyledText>
-      ),
-      icon: (
-        <Avatar
-          size={"small"}
-          style={{
-            backgroundColor: colors.grey[1],
-          }}
-        >
-          {currentTenantName.at(0)?.toUpperCase() || ""}
-        </Avatar>
-      ),
-      key: COMPANY_PROFILE_KEY,
-      style: { paddingInline: collapsed ? "35%" : "10%" },
-    }),
     getItem({
       label: "Compliance settings",
       key: WorkspaceTabRoutesV4.ComplianceSettings,
@@ -60,7 +59,7 @@ export const SiderMenu: React.FC<{ collapsed: boolean; tabId: string }> = ({
 
   const handleKeySelected = (ev: any) => {
     if (ev.key !== COMPANY_PROFILE_KEY) {
-      router.push(Pages.WORKSPACE(ev.key));
+      router.push("Pages.WORKSPACE(ev.key)");
     }
   };
 
@@ -101,11 +100,6 @@ export const SiderMenu: React.FC<{ collapsed: boolean; tabId: string }> = ({
         style={{ width: collapsed ? menuWidthCollapsed : menuWidth }}
         onSelect={handleKeySelected}
         selectedKeys={[tabId]}
-      />
-      <HelpCenterMenu
-        collapsed={collapsed}
-        menuWidth={menuWidth}
-        menuWidthCollapsed={menuWidthCollapsed}
       />
     </>
   );

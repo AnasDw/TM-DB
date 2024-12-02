@@ -3,7 +3,6 @@ import { PropsWithChildren } from "react";
 import { Layout } from "antd";
 import styled from "styled-components";
 
-import { AdminRoute } from "../../authentication/AdminRoute";
 import { AdminSideNavigationV4 } from "./AdminSideNavigationV4";
 
 const StyledContent = styled(Layout.Content)`
@@ -34,14 +33,12 @@ export const AdminSideNavigationLayout: React.FC<
   shouldDisplayCreateProjectControl = true,
 }) => {
   return (
-    <AdminRoute>
-      <StyledLayout>
-        <AdminSideNavigationV4
-          shouldDisplaySearchBar={shouldDisplaySearchBar}
-          shouldDisplayCreateProjectControl={shouldDisplayCreateProjectControl}
-        />
-        <StyledContent>{children}</StyledContent>
-      </StyledLayout>
-    </AdminRoute>
+    <StyledLayout>
+      <AdminSideNavigationV4
+        shouldDisplaySearchBar={shouldDisplaySearchBar}
+        shouldDisplayCreateProjectControl={shouldDisplayCreateProjectControl}
+      />
+      <StyledContent>{children}</StyledContent>
+    </StyledLayout>
   );
 };

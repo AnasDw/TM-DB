@@ -3,8 +3,6 @@ import { PropsWithChildren } from "react";
 import { Layout } from "antd";
 import styled from "styled-components";
 
-import { AdminRoute } from "../../authentication/AdminRoute";
-
 const { Content } = Layout;
 
 const StyledLayout = styled(Layout)`
@@ -16,10 +14,8 @@ export const AdminProjectCreationLayout: React.FC<PropsWithChildren> = ({
   children,
 }) => {
   return (
-    <AdminRoute>
-      <StyledLayout>
-        <Content>{children}</Content>
-      </StyledLayout>
-    </AdminRoute>
+    <StyledLayout>
+      <Content>{children}</Content>
+    </StyledLayout>
   );
 };

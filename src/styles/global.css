@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
+
+html,
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  height: 100%;
+  line-height: 1.5;
+  margin: 0;
+}
+
+div#__next {
+  height: 100%;
+}
+
+main {
+  height: 100%;
+}
+
+.typing-animation-container {
+  max-width: 400px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.typing-animation {
+  position: relative;
+  height: 1.2em;
+  /* Set the initial height to 1.2em, or adjust as needed */
+}
+
+.blinking-cursor {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 4px;
+  background-color: black;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+p {
+  margin: 0;
+  padding-right: 10px;
+}
+
+.highlighted {
+  background-color: #3b81f6;
+}
+
+.scene-tooltip {
+  color: black !important;
+  font-size: 18px !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: unset;
+}
+
+ul,
+ol,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+audio,
+canvas,
+embed,
+iframe,
+img,
+object,
+svg,
+video {
+  display: block;
+  vertical-align: middle;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+.ant-menu-submenu-title {
+  color: #1c1842 !important;
+}

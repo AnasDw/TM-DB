@@ -1,0 +1,19 @@
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="56" height="56" rx="8" fill="#F0EEFC"/>
+<g>
+<rect x="6" y="16" width="16" height="24" rx="2" fill="#BEB8F1"/>
+<rect x="8" y="19" width="5" height="8" rx="1" fill="white"/>
+<rect x="8" y="29" width="12" height="2" rx="1" fill="white"/>
+<rect x="8" y="33" width="12" height="5" rx="1" fill="#6759DF"/>
+<rect x="15" y="19" width="5" height="8" rx="1" fill="white"/>
+<path d="M11 16H17C17 16.5523 16.5523 17 16 17H12C11.4477 17 11 16.5523 11 16Z" fill="#2E2864"/>
+</g>
+<g>
+<rect x="34" y="16" width="16" height="24" rx="2" fill="#BEB8F1"/>
+<path d="M39 16H45C45 16.5523 44.5523 17 44 17H40C39.4477 17 39 16.5523 39 16Z" fill="#2E2864"/>
+<rect x="36" y="19" width="12" height="8" rx="1" fill="white"/>
+<rect x="36" y="29" width="12" height="2" rx="1" fill="white"/>
+<rect x="38" y="32" width="8" height="2" rx="1" fill="white"/>
+</g>
+<path d="M21 28C20.7239 28 20.5 28.2239 20.5 28.5C20.5 28.7761 20.7239 29 21 29V28ZM35.3536 28.8536C35.5488 28.6583 35.5488 28.3417 35.3536 28.1464L32.1716 24.9645C31.9763 24.7692 31.6597 24.7692 31.4645 24.9645C31.2692 25.1597 31.2692 25.4763 31.4645 25.6716L34.2929 28.5L31.4645 31.3284C31.2692 31.5237 31.2692 31.8403 31.4645 32.0355C31.6597 32.2308 31.9763 32.2308 32.1716 32.0355L35.3536 28.8536ZM21 29H35V28H21V29Z" fill="#6759DF"/>
+</svg>
